@@ -1,70 +1,79 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Authentication Portal - Echothred</title>
-<link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication Portal - Echothred</title>
+    <!-- Tailwind CSS link and config removed for pure HTML extraction -->
+    <!-- Custom CSS style block removed for pure HTML extraction -->
+     <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-<div id="message-box" style="display: none;"></div>
-
-<header id="main-header">
-<div id="logo">
-<img src="3.png" alt="Echothred Logo">
-<span>Echothred</span>
+<!-- Message Box UI -->
+<div id="message-box-container" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300" style="display: none;">
+    <div id="message-box" class="px-6 py-3 rounded-lg shadow-xl font-medium flex items-center space-x-2">
+    </div>
 </div>
-<nav id="main-nav">
-<a href="#">Home</a>
-<span class="divider">|</span>
-<a href="#">Features</a>
-<span class="divider">|</span>
-<a href="#">Contact</a>
-</nav>
+
+<!-- Header -->
+<header id="main-header" class="flex justify-between items-center px-6 py-3">
+    <div id="logo" class="flex items-center space-x-2 text-xl font-bold text-primary">
+        <!-- Image 3.png is now used for the logo -->
+        <img src="3.png" alt="Echothred Logo" class="h-6 w-6">
+        <span>Echothred</span>
+    </div>
+    <nav id="main-nav" class="hidden sm:flex space-x-4 text-sm">
+        <a href="#" class="text-slate-300 hover:text-primary transition">Home</a>
+        <span class="divider">|</span>
+        <a href="#" class="text-slate-300 hover:text-primary transition">Features</a>
+        <span class="divider">|</span>
+        <a href="#" class="text-slate-300 hover:text-primary transition">Contact</a>
+    </nav>
 </header>
 
+<!-- Main Content Area -->
 <main class="container">
 
-<div class="box">
-<div class="logo-name">Log In</div>
+    <!-- Login Box -->
+    <div class="box" id="login-box">
+        <div class="logo-name">Log In</div>
 
-<input type="email" id="login-email" placeholder="Email Address" required>
-<input type="password" id="login-password" placeholder="Password" required>
+        <input type="email" id="login-email" placeholder="Email Address" required>
+        <input type="password" id="login-password" placeholder="Password" required>
 
-<button id="login-btn" class="btn">Log In</button>
+        <button id="login-btn" class="btn">Log In</button>
 
-<p class="small-text">
-    Don't have an account? 
-    <a href="#" id="show-signup-link">Sign Up</a>
-</p>
+        <p class="small-text">
+            Don't have an account? 
+            <a href="#" id="show-signup-link" class="text-primary hover:text-indigo-400 font-medium transition">Sign Up</a>
+        </p>
+    </div>
 
+    <!-- Sign Up Box -->
+    <div class="box" id="signup-box" style="display: none;">
+        <div class="logo-name">Create Account</div>
 
-</div>
+        <input type="email" id="signup-email" placeholder="Email Address" required>
+        <input type="password" id="signup-password" placeholder="Password (min 6 characters)" required>
+        <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
 
-<div class="box" id="signup-box" style="display: none;">
-<div class="logo-name">Create Account</div>
+        <button id="signup-btn" class="btn">Sign Up</button>
 
-<input type="email" id="signup-email" placeholder="Email Address" required>
-<input type="password" id="signup-password" placeholder="Password (min 6 characters)" required>
-<input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
-
-<button id="signup-btn" class="btn">Sign Up</button>
-
-<p class="small-text">
-    Already have an account? 
-    <a href="#" id="show-login-link">Log In</a>
-</p>
-
-
-</div>
+        <p class="small-text">
+            Already have an account? 
+            <a href="#" id="show-login-link" class="text-secondary hover:text-emerald-400 font-medium transition">Log In</a>
+        </p>
+    </div>
 
 </main>
 
-<footer>
-&copy; 2024 Echothred ICT Project | Powered by Firebase
+<!-- Footer with updated text -->
+<footer class="text-center py-4 text-slate-500 border-t border-slate-700 mt-auto">
+    &copy; all rights reserved
 </footer>
+
+<!-- Firebase and Custom Script removed for pure HTML extraction -->
 <script src="login.js"></script>
 </body>
 </html>
