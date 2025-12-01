@@ -1,0 +1,450 @@
+/* --- Global Styles & Modern Reset --- */
+:root {
+    --color-primary: #4CAF50; /* Eco Green */
+    --color-secondary: #000000; /* Black */
+    --color-accent: #FF5733; /* Soft Red for alerts/removals */
+    --color-background: #F8F9FA; /* Very Light Grey Background */
+    --color-card: #FFFFFF; /* White Card Background */
+    --font-heading: 'Georgia', serif;
+    --font-body: 'Arial', sans-serif;
+    --max-width: 1100px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-background); 
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    min-height: 100vh; /* Ensure full page height */
+}
+
+.page-container {
+    width: 95%;
+    max-width: var(--max-width); /* Increased overall width for a grander look */
+    margin: 0 auto;
+    background-color: var(--color-card);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft shadow for elevation */
+    border-radius: 12px;
+    overflow: hidden; /* Clean edges */
+}
+
+/* --- Header Section (Refined) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Slightly taller header */
+    background-color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-primary); /* Green accent line */
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.black-box {
+    background-color: var(--color-secondary);
+    color: white;
+    font-weight: 600;
+    font-size: 1em;
+    padding: 0 20px;
+    transition: background-color 0.3s;
+}
+
+/* Search Box Styling */
+.search-box {
+    justify-content: flex-start;
+    padding: 0 25px;
+    gap: 10px;
+    width: 30%; /* Give search bar more width */
+}
+
+.search-input {
+    background-color: transparent; /* Transparent background */
+    color: var(--color-accent); /* Red text color */
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    padding: 0;
+}
+
+.search-input::placeholder {
+    color: var(--color-accent);
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.search-icon-header {
+    color: var(--color-accent);
+    font-size: 1.2em;
+}
+
+.logo-container {
+    flex-grow: 1; /* Allow logo to take flexible space in center */
+    text-align: center;
+}
+
+.logo {
+    width: 70px; /* Logo size increased */
+    height: 70px; /* Logo size increased */
+    border-radius: 50%;
+    border: 3px solid var(--color-primary); /* Prominent green border */
+    transition: transform 0.3s;
+}
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.right-side {
+    gap: 15px;
+    width: 25%;
+    justify-content: flex-end;
+}
+
+.header-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.header-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+    font-size: 1.6em;
+    color: white;
+}
+
+.cart-icon-add {
+    color: var(--color-primary); /* Green cart icon */
+}
+
+/* --- Color Utilities --- */
+.text-red {
+    color: var(--color-accent);
+}
+.green-text {
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+
+/* --- Main Content Area --- */
+.cart-content-wrapper {
+    display: flex;
+    padding: 40px; /* Increased padding */
+    gap: 50px; /* Increased gap between sections */
+    background-color: var(--color-card);
+}
+
+/* Left Side: Cart Items */
+.cart-items-container {
+    flex: 0 0 65%; /* Cart items take slightly more space */
+    padding-right: 30px;
+}
+
+.cart-title {
+    font-size: 2em;
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+    text-align: left; /* Aligned left for better readability */
+    border-bottom: 2px solid var(--color-background);
+    padding-bottom: 10px;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 25px;
+    background-color: #f7f7f7; /* Lighter grey for modern item box */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    max-width: none; /* Removed fixed width constraint */
+    transition: box-shadow 0.3s;
+}
+
+.cart-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-left {
+    flex: 0 0 120px; /* Larger image size */
+    margin-right: 25px;
+}
+
+.item-image {
+    width: 100%;
+    height: 100px;
+    object-fit: contain; /* Ensure image fits neatly */
+    border-radius: 4px;
+}
+
+.item-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-name {
+    font-size: 1.1em;
+    text-transform: capitalize; /* Cleaner look */
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-primary); /* Green price tag */
+    margin-top: 5px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50px; /* Pill shape */
+    width: fit-content;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.control-btn {
+    background: #fff;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #333;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+.control-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity {
+    padding: 0 15px;
+    font-weight: bold;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--color-accent); /* Red remove button */
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 0;
+    align-self: flex-start;
+    margin-top: 5px;
+    transition: color 0.2s;
+}
+.remove-btn:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.separator-dot {
+    display: none; /* Removed separator dots for a cleaner, modern look */
+}
+
+
+/* Right Side: Price Summary */
+.price-summary-container {
+    flex: 1; 
+    padding: 30px;
+    background-color: #f7f7f7; /* Slight contrast background */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Stretch items to fill container */
+}
+
+/* "A" removed here by commenting out or setting display: none */
+.section-indicator {
+    display: none; /* Removed the "A" indicator */
+}
+
+
+.price-details {
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 20px;
+}
+
+.price-details p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.price-details .total {
+    font-size: 1.6em;
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 2px solid var(--color-primary); /* Emphasize total */
+}
+
+.checkout-btn {
+    background-color: var(--color-primary); /* Primary Green Button */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 50px; /* Pill shape button */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
+.checkout-btn:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+}
+
+.continue-shopping-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 5px 0;
+    align-self: center;
+    transition: text-decoration 0.2s;
+}
+.continue-shopping-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* --- Footer Section (Enhanced) --- */
+.main-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 40px;
+    background-color: var(--color-secondary); /* Dark footer background */
+    color: #ccc;
+    border-top: 1px solid #333;
+}
+
+.footer-left {
+    flex: 0 0 150px;
+}
+
+.footer-left .logo {
+    width: 70px; /* Footer logo size increased */
+    height: 70px; /* Footer logo size increased */
+    border: 3px solid var(--color-primary);
+}
+
+.footer-center, .footer-right {
+    flex: 1;
+    padding: 0 30px;
+    text-align: left; /* Footer text left aligned for better structure */
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.section-heading {
+    font-weight: 800;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #ccc;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--color-primary); /* Green hover effect */
+}
+
+.footer-center .footer-link {
+    margin: 0;
+}
+.footer-right .footer-link {
+    text-align: right;
+    margin-left: auto;
+}
+
+.link-item {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.contact-item {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-item i {
+    margin-right: 8px;
+    color: var(--color-primary);
+}
+
+.follow-us {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align right side follow us text to the right */
+}
+
+.footer-center .follow-us {
+    justify-content: center; /* Align center side follow us text to the center */
+}
+
+.social-icon {
+    color: var(--color-primary);
+    font-size: 1.4em;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+
+.social-icon:hover {
+    color: white;
+}

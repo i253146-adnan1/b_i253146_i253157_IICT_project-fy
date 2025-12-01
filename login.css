@@ -1,0 +1,139 @@
+/* Soft comfortable background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #d0f0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header Styles (copied from homepage) */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 40px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    width: 55px;
+    margin-right: 10px;
+}
+
+#logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009879;
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: #009879;
+    font-size: 16px;
+    margin: 0 8px;
+    text-transform: capitalize;
+}
+
+#main-nav .divider {
+    color: #444;
+}
+
+/* LOGIN & SIGNUP CONTAINER */
+.container {
+    margin-top: 140px; /* space under fixed header */
+    display: flex;
+    gap: 40px;
+}
+
+/* BOXES */
+.box {
+    background: white;
+    width: 300px;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* LOGO */
+.logo img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.logo-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #009879;
+}
+
+/* INPUT FIELDS */
+.box input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #009879;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* TEXT */
+.small-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+a {
+    color: #009879;
+    text-decoration: none;
+}
+
+
+/* FOOTER */
+footer {
+    margin-top: 60px;
+    width: 100%;
+    background: #009879;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

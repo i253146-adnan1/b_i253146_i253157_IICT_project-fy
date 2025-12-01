@@ -1,0 +1,218 @@
+/* CSS to enforce a single-page view for the product gallery.
+  This uses Flexbox for the header/main content separation and CSS Grid 
+  for the product cards, sizing everything relative to the viewport 
+  to prevent vertical scrolling.
+*/
+
+/* 1. Global Reset and Height Setup */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    width: 100%;
+    /* FIX 1: Allow scrolling (oveflow: auto) to ensure everything is visible 
+       and to create the requested "little space below." */
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    font-family: sans-serif;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+/* 2. Main Layout (Header and Main Content) */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    /* Fixed height for the header (e.g., 10% of viewport height) */
+    height: 10vh;
+    padding: 0 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+header div:first-child {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header img {
+    height: 5vh; /* Scale logo relative to header height */
+    width: auto;
+    margin-right: 10px;
+}
+
+header nav a, header nav span {
+    text-decoration: none;
+    color: #666;
+    margin: 0 5px;
+    font-size: 0.8em;
+}
+
+main {
+    /* Use min-height so content can expand slightly beyond 90vh if necessary,
+       ensuring the bottom buffer is always visible. */
+    min-height: 90vh; 
+    /* ADJUSTMENT 1: Tighter vertical padding to save space */
+    padding: 0.5vh 5vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Search and Sort Bar */
+main > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* ADJUSTMENT 2: Reduced margin to save space */
+    margin-bottom: 0.5vh; /* Even tighter margin */
+}
+
+main h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #1a1a1a;
+}
+
+main select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 4. Product Grid Layout (The core of the fixed-page display) */
+main > div:last-child {
+    /* Use CSS Grid to organize the 8 products in a fixed area */
+    display: grid;
+    /* 4 columns in desktop view */
+    grid-template-columns: repeat(4, 1fr); 
+    /* 2 rows to fit 8 items */
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 1.5vw; /* Responsive gap */
+    
+    flex-grow: 1; 
+    
+    /* FIX 2: Explicit padding at the bottom to create the requested "little space" */
+    padding-bottom: 20px;
+}
+
+/* 5. Product Card Styling */
+/* The HTML uses <div> for cards, <div> for images, and <div> for details */
+main > div > div {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+/* Image Container */
+main > div > div > div:first-child {
+    flex-grow: 1; /* Image takes most of the space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Image Scaling */
+main img {
+    /* Ensure image fills its container while maintaining aspect ratio */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Details Section */
+main > div > div > div:last-child {
+    padding: 8px; /* Tighter padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* ADJUSTMENT 3: Tighter fixed height for the details area */
+    height: 70px; 
+    flex-shrink: 0; 
+}
+
+main p {
+    margin: 0 0 4px 0; /* Tighter margin */
+    font-size: 0.85em;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+main p:last-of-type {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 6px; /* Tighter margin */
+}
+
+main button {
+    padding: 4px; /* Tighter padding */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.7em;
+    transition: background-color 0.2s;
+}
+
+main button:hover {
+    background-color: #218838;
+}
+
+/* 6. Responsive Adjustments (for smaller screens) */
+/* On smaller screens (e.g., tablets/mobile), switch to a 2x4 grid */
+@media (max-width: 1024px) {
+    main > div:last-child {
+        /* Switch to 2 columns, 4 rows */
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    
+    main h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* On very small screens (mobile portrait), switch to a 1x8 grid */
+@media (max-width: 600px) {
+    main {
+        padding: 0.5vh 3vw;
+    }
+    
+    main > div:last-child {
+        /* Switch to 1 column, 8 rows */
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(8, 1fr);
+        gap: 1vh; /* Tighter gap on mobile */
+    }
+    
+    main h2 {
+        font-size: 1.2em;
+    }
+
+    header nav {
+        display: none; /* Hide navigation on very small screens for space */
+    }
+
+    header {
+        height: 8vh;
+    }
+
+    main {
+        min-height: 92vh;
+    }
+}

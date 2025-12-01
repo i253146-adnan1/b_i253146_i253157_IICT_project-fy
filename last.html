@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="last.css">
+</head>
+<body>
+
+<div class="page-container">
+    
+    <header class="main-header">
+        <div class="header-section black-box search-box">
+            <input type="text" class="search-input" placeholder="search">
+            <i class="fa-solid fa-magnifying-glass search-icon-header"></i>
+        </div>
+        <div class="header-section logo-container">
+            <a href="#" class="logo-link"><img src="3.png" alt="EcoThread Logo" class="logo"></a>
+        </div>
+        <div class="header-section black-box right-side">
+            <a href="#" class="header-link text-red">account</a>
+            <a href="#" class="header-link"><i class="fa-solid fa-user icon"></i></a>
+            <a href="#" class="header-link cart-link"><i class="fa-solid fa-cart-shopping icon cart-icon-add"></i></a>
+        </div>
+    </header>
+
+    <main class="cart-content-wrapper">
+        <div class="cart-items-container">
+            <h2 class="cart-title"><span class="green-text">cart</span></h2>
+
+            <div class="cart-item">
+                <a href="#" class="item-link item-left">
+                    <img src="a.png" alt="Trendy Canvas Bag" class="item-image">
+                </a>
+                <div class="item-right">
+                    <a href="#" class="item-link"><p class="item-name">trendy canvas bag</p></a>
+                    <p class="item-price">$ 32.00</p>
+                    <div class="quantity-controls">
+                        <button class="control-btn minus" title="Decrease quantity">-</button>
+                        <span class="quantity">1</span>
+                        <button class="control-btn plus" title="Increase quantity">+</button>
+                    </div>
+                    <button class="remove-btn" title="Remove item">remove</button>
+                </div>
+            </div>
+
+            <div class="separator-dot"></div>
+
+            <div class="cart-item">
+                <a href="#" class="item-link item-left">
+                    <img src="m.jpg" alt="Cosmetics Bag" class="item-image">
+                </a>
+                <div class="item-right">
+                    <a href="#" class="item-link"><p class="item-name">cosmetics bag</p></a>
+                    <p class="item-price">$88.00</p>
+                    <div class="quantity-controls">
+                        <button class="control-btn minus" title="Decrease quantity">-</button>
+                        <span class="quantity">1</span>
+                        <button class="control-btn plus" title="Increase quantity">+</button>
+                    </div>
+                    <button class="remove-btn" title="Remove item">remove</button>
+                </div>
+            </div>
+            
+            <div class="separator-dot"></div>
+
+            <div class="cart-item">
+                <a href="#" class="item-link item-left">
+                    <img src="c.jpg" alt="Embroidered Floral Laptop Sleeve" class="item-image">
+                </a>
+                <div class="item-right">
+                    <a href="#" class="item-link"><p class="item-name">embroidered floral laptop sleeve</p></a>
+                    <p class="item-price">$35.00</p>
+                    <div class="quantity-controls">
+                        <button class="control-btn minus" title="Decrease quantity">-</button>
+                        <span class="quantity">1</span>
+                        <button class="control-btn plus" title="Increase quantity">+</button>
+                    </div>
+                    <button class="remove-btn" title="Remove item">remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="price-summary-container">
+            <span class="section-indicator">A</span> <div class="price-details">
+                <p>sub total=<span>$148</span></p>
+                <p>tax=<span>$0.0</span></p>
+                <p>delivery charges=<span>$12</span></p>
+                <p class="total">total=<span>$160</span></p>
+            </div>
+            
+            <button class="checkout-btn">check out</button>
+            <button class="continue-shopping-btn">continue shopping</button>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-left">
+            <a href="#" class="logo-link"><img src="3.png" alt="EcoThread Logo" class="logo"></a>
+        </div>
+        <div class="footer-center">
+            <p class="section-heading">Quick Links</p>
+            <a href="#" class="footer-link"><p class="link-item">ABOUT PEOPLE OFFERS</p></a>
+            <a href="#" class="footer-link"><p class="link-item">terms & conditions privacy policy</p></a>
+        </div>
+        <div class="footer-right">
+            <p class="section-heading">contact info</p>
+            <a href="mailto:support@scientify.com" class="footer-link contact-item"><i class="fa-regular fa-envelope"></i> support@scientify.com</a>
+            <a href="tel:+923440734735" class="footer-link contact-item"><i class="fa-solid fa-phone"></i> +923440734735</a>
+            <p class="contact-item">Islamabad, Pakistan</p>
+            <p class="follow-us">follow us <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a> <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></p>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
