@@ -1,23 +1,9 @@
-/**
- * Simple client-side script for the Echothred Login Page.
- * This script handles basic client-side interactivity, including:
- * 1. Toggling between Login and Sign Up views.
- * 2. Handling the click on the Login button, validating inputs, and redirecting to 'more.html'.
- * * NOTE: This is a placeholder for a real application where Firebase authentication would occur.
- */
-
-/**
- * Displays a temporary message box using the existing message-box-container structure.
- * @param {string} message The message content.
- * @param {boolean} isError If true, styles the message as an error.
- */
 function showMessage(message, isError = false) {
     const boxContainer = document.getElementById('message-box-container');
     const box = document.getElementById('message-box');
     
-    // Set basic styles (relying on the existing HTML classes for positioning)
     box.textContent = message;
-    box.style.backgroundColor = isError ? '#dc2626' : '#10b981'; // red or green
+    box.style.backgroundColor = isError ? '#dc2626' : '#10b981';
     box.style.color = 'white';
     box.style.padding = '12px 24px';
     box.style.borderRadius = '8px';
@@ -25,7 +11,6 @@ function showMessage(message, isError = false) {
     
     boxContainer.style.display = 'block';
     
-    // Hide the message after 3 seconds
     setTimeout(() => {
         boxContainer.style.display = 'none';
     }, 3000);
@@ -36,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginEmail = document.getElementById('login-email');
     const loginPassword = document.getElementById('login-password');
     
-    // Helper function to toggle between login and signup boxes
     function showBox(targetBoxId) {
         const loginBox = document.getElementById('login-box');
         const signupBox = document.getElementById('signup-box');
@@ -50,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Attach event listeners for switching views
     document.getElementById('show-signup-link')?.addEventListener('click', (e) => {
         e.preventDefault();
         showBox('signup-box');
@@ -61,10 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         showBox('login-box');
     });
 
-    // --- Main Login Logic ---
     if (loginButton) {
         loginButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault();
             
             const email = loginEmail.value.trim();
             const password = loginPassword.value.trim();
@@ -74,19 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // 1. Show Success Message
             showMessage("Login successful! Redirecting...", false);
             
-            // 2. Redirect to more.html after a short delay
             setTimeout(() => {
                 window.location.href = 'more.html';
             }, 1000); 
         });
     }
 
-    // Placeholder for Sign Up functionality (to handle click event)
+    // UPDATED: Sign Up now redirects to more.html after validation.
     document.getElementById('signup-btn')?.addEventListener('click', (e) => {
         e.preventDefault();
-        showMessage("Sign Up functionality is pending implementation.", true);
+        
+        // Assuming these IDs exist in the login.html sign-up form
+        const signupEmail = document.getElementById('signup-email').value.trim();
+        const signupPassword = document.getElementById('signup-password').value.trim();
+        const signupConfirmPassword = document.getElementById('signup-confirm-password').value.trim();
+        
+        if (!signupEmail || !signupPassword || signupPassword !== signupConfirmPassword) {
+            showMessage("Please fill all fields and ensure passwords match.", true);
+            return;
+        }
+        
+        showMessage("Account created! Redirecting...", false);
+        
+        setTimeout(() => {
+            window.location.href = 'more.html';
+        }, 1000); 
     });
 });
